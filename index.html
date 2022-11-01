@@ -5,9 +5,74 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ordering App</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
+  <div class="container">
+    <header class="header">
+      <div class="header-text">
+        <h1>Jimmy's Dinner</h1>
+        <p>The best burgers and pizzas in town</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="menu">
+
+          <ul class="menu-list">
+
+            <li class="flex">
+              <div class="menu-item flex" id="menu-item">
+                <div class="item-img" id="item-img">🍕</div>
+                <div class="item-details" id="item-details">
+                  <h3 class="item-title" id="item-title">Pizza</h3>
+                  <p class="item-description" id="item-description">pepperoni, mushroom, mozarella</p>
+                  <p class="item-price" id="item-price">$14</p>
+                </div>
+              </div>
+              <button class="add-btn" id="add-btn">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </li>
+
+
+          </ul>
+
+
+        <!-- <i class="fa-solid fa-plus"></i> -->
+      </section>
+
+      <section class="order-container" id="order-container">
+        <!-- show order summary when an item is added to order -->
+        <div class="order hidden">
+          <h2>Your order</h2>
+          <div class="order-details">
+
+          </div>
+          <button ></button>
+        </div>
+      </section>
+      <div class="order-confirm" id="order-confirm">
+
+      </div>
+    </main>
+
+    <div class="payment-modal hidden" id="payment-modal">
+      <h2>Enter Card Details</h2>
+      <form action="">
+        <input type="text" placeholder="Enter your name">
+        <input type="" placeholder="Enter card number">
+        <input type="" placeholder="Enter CVV">
+        <button type="submit">Pay</button>
+      </form>
+		</div>
+
+  </div>
+
   
   <script src="app.js"></script>
 </body>

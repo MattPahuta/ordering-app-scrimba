@@ -1,0 +1,174 @@
+:root {
+  /* colors */
+  --clr-green: hsla(160, 82%, 47%, 1);
+  --clr-light-gray: hsla(0, 0%, 82%, 1);
+  --clr-dark-gray: hsla(0, 0%, 55%, 1);
+}
+/*
+  ************* RESET *****************************
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+  *************************************************
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* 
+font-family: 'Smythe', cursive;
+font-family: Verdana, sans-serif;
+*/
+
+/* Utility and General Styles */
+body {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  font-family: 'Smythe', cursive;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.container {
+  width: 600px;
+  margin-inline: auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Header */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding-right: 5%;
+  max-width: 100%;
+  height: 167px;
+  background: #303030;
+  background-image: url(../img/edward-franklin-Nb_Q-M3Cdzg-unsplash.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: 70%;
+  color: #fff;
+}
+
+.header-text h1 {
+  font-size: 2.25rem;
+}
+
+.header-text p {
+  font-size: 1.25rem;
+}
+
+/* Menu Styles */
+.menu {
+  padding: 2.5em 1em;
+}
+
+.menu-list {
+  padding: 0;
+  list-style: none;
+}
+
+.menu-list li {
+  padding-bottom: 2em;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--clr-light-gray);
+}
+
+.item-img {
+  font-size: 3.25rem;
+}
+
+.item-details {
+  margin-left: 2rem;
+}
+
+.item-title {
+  font-size: 1.75rem;
+}
+
+.item-description {
+  color: var(--clr-dark-gray);
+  margin-bottom: 0.5rem;
+}
+
+.item-price {
+  font-size: 1.25rem;
+}
+
+.add-btn {
+  cursor: pointer;
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	border: 1px solid gray;
+	background: #fff;
+}
+
+.add-btn:hover,
+.add-btn:focus {
+  background: var(--clr-green);
+}
+
+
+/* Modal styles */
+
+.pop-up-modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
