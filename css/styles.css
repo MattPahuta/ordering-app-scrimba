@@ -120,7 +120,7 @@ body {
 }
 
 .menu-list li {
-  padding-bottom: 2em;
+  padding: 2em 0;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--clr-light-gray);
@@ -154,10 +154,10 @@ body {
 	border-radius: 50%;
 	border: 1px solid gray;
 	background: #fff;
+  content: "<i class="fa-solid fa-plus"></i>";
 }
 
-.add-btn:hover,
-.add-btn:focus {
+.add-btn:hover {
   background: var(--clr-green);
 }
 
