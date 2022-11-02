@@ -62,17 +62,18 @@ font-family: Verdana, sans-serif;
 /* Utility and General Styles */
 body {
   min-height: 100vh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
   font-family: 'Smythe', cursive;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
+  background: #d2dede;
 }
 
 .container {
   width: 600px;
   margin-inline: auto;
+  padding-bottom: 2em;
+  background: #fff;
 }
 
 .flex {
@@ -114,15 +115,22 @@ body {
   padding: 2.5em 1em;
 }
 
-.menu-list {
+.menu-list,
+.order-list {
   padding: 0;
   list-style: none;
 }
 
-.menu-list li {
-  padding: 2em 0;
+.menu-list li,
+.order-list li,
+.total-container {
   justify-content: space-between;
   align-items: center;
+
+}
+
+.menu-list li {
+  padding: 2em 0;
   border-bottom: 1px solid var(--clr-light-gray);
 }
 
@@ -148,19 +156,77 @@ body {
 }
 
 .add-btn {
-  cursor: pointer;
+  /* cursor: pointer; */
 	height: 50px;
 	width: 50px;
 	border-radius: 50%;
 	border: 1px solid gray;
 	background: #fff;
-  content: "<i class="fa-solid fa-plus"></i>";
+  background-image: url('../img/plus-solid.svg');
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .add-btn:hover {
+  border: 2px solid var(--clr-green);
+}
+
+/* Order Summary Styles */
+.checkout {
+  padding: 0 1em;
+  text-align: center;
+}
+
+.order-details {
+  padding-bottom: 1.5em;
+}
+
+.total-container {
+	border-top: 3px solid black;
+	padding: 1em 0 2.5em;
+}
+
+.order h2,
+.item,
+.total {
+  font-size: 1.75rem;
+}
+
+.price,
+.total-amount {
+  font-size: 1.25rem;
+}
+
+.remove-item {
+  text-decoration: none;
+  margin-left: 1em;
+  color: var(--clr-dark-gray);
+}
+
+.remove-item:hover,
+.remove-item:focus {
+  color: var(--clr-light-gray);
+}
+
+.submit-order {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  width: 100%;
+  padding: 1.25em 0;
+  text-decoration: none;
+  font-family: Verdana, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
   background: var(--clr-green);
 }
 
+.submit-order:hover,
+.submit-order:focus {
+  opacity: 0.8;
+}
 
 /* Modal styles */
 

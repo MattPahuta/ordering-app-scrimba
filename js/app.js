@@ -30,31 +30,61 @@ const menuData = [
 
 document.addEventListener('click', (e) => {
   // clicks on 'add' menu item button
-  // if (e.target.classList.includes('add-btn')) {
-  //   console.log('button clicked!')
+  if (e.target.dataset.add) {
+    console.log(e.target.dataset.add)
+    handleAddMenuItem(e.target.dataset.add)
+  }
+  
 
-  //   handleAddMenuItem(e.target.id)
-  //   // console.log('Added item #: ', e.target.dataset.itemid)
-  // }
-  console.log(e.target)
 })
 
+// vars to hold ordered items and order total
+// update to add to a dedicated function?
+let orderArray = []
+let orderTotal = 0;
+
 // Handle add to order 
-function handleAddMenuItem(menuId) {
-  const selectedItem = Number(menuId)
-  const orderArray = [];
-  console.log('Item ID passed in: ', menuId);
+function handleAddMenuItem(menuId) { // pass in data-add value
+  document.getElementById('order').classList.remove('hidden') // unhide the order summary
+  const selectedItem = Number(menuId) // convert menuId to number
+
+  console.log('Item ID passed in: ', menuId); // debug
 
   for (let item of menuData) {
     if (item.id === selectedItem) {
       orderArray.push(item)
+      orderTotal += item.price;
     }
   }
 
-  console.log(orderArray)
+  console.log('Current order array: ', orderArray)
+
+  // updateOrder();
+  document.getElementById('order-list').innerHTML = renderOrderHtml()
 }
 
-// <i class="fa-solid fa-plus"></i>
+function updateOrder() {
+  document.getElementById('order-list').innerHTML = renderOrderHtml()
+
+}
+
+// Render the ordered items onto the page
+function renderOrderHtml() { 
+  document.getElementById('order').classList.remove('hidden'); // unhide the order summary div
+  let orderHtml = ``;
+
+  orderArray.forEach(item => {
+    orderHtml += `
+      <li class="flex">
+        <div><span class="item">${item.name}</span><span><a href="javascript:;" class="remove-item" data-remove="0">remove</a></span></div>
+        <span class="price">$${item.price}</span>
+      </li>
+      `
+  })
+  // update order total html
+  document.getElementById('total-amount').textContent = `$${orderTotal}`;
+  return orderHtml;
+}
 
 // Build menu item Html
 function getMenuHtml() {
@@ -71,11 +101,7 @@ function getMenuHtml() {
             <p class="item-price" id="item-price">$${item.price}</p>
           </div>
         </div>
-        <button class="add-btn" id="add-item-${item.id}" data-add="${item.id}">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>
-        </button>
-
-
+        <a id="add-item-${item.id}" data-add="${item.id}"href="javascript:;" class="add-btn"></a>
       </li>
       `
   })
@@ -85,9 +111,9 @@ function getMenuHtml() {
 }
 
 // Render menu
-function render() {
+function renderMenu() {
   document.getElementById('menu-list').innerHTML = getMenuHtml();
 }
 
-render();
+renderMenu();
 
