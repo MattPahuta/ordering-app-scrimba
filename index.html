@@ -21,52 +21,24 @@
     </header>
 
     <main>
+      <!-- menu section -->
       <section class="menu">
-
           <ul class="menu-list" id="menu-list">
-
-            <!-- <li class="flex">
-              <div class="menu-item flex" id="menu-item">
-                <div class="item-img" id="item-img">🍕</div>
-                <div class="item-details" id="item-details">
-                  <h3 class="item-title" id="item-title">Pizza</h3>
-                  <p class="item-description" id="item-description">pepperoni, mushroom, mozarella</p>
-                  <p class="item-price" id="item-price">$14</p>
-                </div>
-              </div>
-              <button class="add-btn" id="add-btn">
-                <i class="fa-solid fa-plus"></i>
-              </button>
-            </li> -->
-
-
           </ul>
-
       </section>
-
+      <!-- shopping cart section -->
       <section class="checkout" id="checkout">
-        <!-- show order summary when an item is added to order -->
-        <div id="order" class="order hidden">
+        <div id="cart" class="cart">
           <h2>Your order</h2>
           <div class="order-details" id="order-details">
             <ul id="order-list" class="order-list">
-              <!-- <li class="flex">
-                <div><span class="item">Pizza</span><span><a href="javascript:;" class="remove-item" data-remove="0">remove</a></span></div>
-                <span class="price">$14</span>
-              </li>
-              <li class="flex">
-                <div><span class="item">Beer</span><span><a href="#javascript:;" class="remove-item" data-remove="1">remove</a></span></div>
-                <span class="price">$12</span>
-              </li> -->
             </ul>
           </div>
-
           <div class="total-container flex">
-            <span class="total">Total price:</span><span class="total-amount" id="total-amount">$26</span>
+            <span class="total">Total price:</span><span class="total-amount" id="total-amount"></span>
           </div>
           <a href="javascript:;" class="submit-order" id="submit-order">Complete order</a>
         </div>
-
       </section>
 
       <div class="order-confirm" id="order-confirm">
@@ -86,6 +58,6 @@
   </div>
 
   
-  <script src="./js/app.js"></script>
+  <script src="./js/app.js" type="module"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 
 
-const menuArray = [
+export const menuArray = [
   {
       name: "Pizza",
       ingredients: ["pepperoni", "mushrom", "mozarella"],

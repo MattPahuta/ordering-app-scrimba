@@ -1,88 +1,69 @@
-
-const menuData = [
-  {
-      name: "Pizza",
-      ingredients: ["pepperoni", "mushrom", "mozarella"],
-      id: 0,
-      price: 14,
-      emoji: "🍕"
-  },
-  {
-      name: "Hamburger",
-      ingredients: ["beef", "cheese", "lettuce"],
-      price: 12,
-      emoji: "🍔",
-      id: 1
-  },
-      {
-      name: "Beer",
-      ingredients: ["grain, hops, yeast, water"],
-      price: 12,
-      emoji: "🍺",
-      id: 2
-  }
-]
+import { menuArray } from './data.js'
 
 
-
-/*
-*/
+let ordersArray = []
 
 document.addEventListener('click', (e) => {
-  // clicks on 'add' menu item button
-  if (e.target.dataset.add) {
-    console.log(e.target.dataset.add)
-    handleAddMenuItem(e.target.dataset.add)
+  
+  if (e.target.dataset.add) { // if add button clicked
+    console.log(typeof e.target.dataset.add) // debug
+    document.getElementById('cart').style.display = 'block'; // show the shopping cart
+    handleAddMenuItem(e.target.dataset.add) // call handleAddMenuItem
+    getTotal(ordersArray) // call getTotal to update total
+  } else if (e.target.dataset.remove) {
+    console.log(e.target.dataset.remove) // debug
+    ordersArray.splice(e.target.dataset.remove, 1); // remove item from cart
+    document.getElementById('order-list').innerHTML = renderCartHtml(ordersArray) // re-render cart
+    getTotal(ordersArray)
+    console.log(ordersArray) // debug
   }
   
 
 })
 
-// vars to hold ordered items and order total
-// update to add to a dedicated function?
-let orderArray = []
-let orderTotal = 0;
+// get/update cart total, display total
+function getTotal(items) { // take in array of items ordered
+  let total = 0;
+  items.forEach(item => total += item.price) // loop through array, add prices
+  document.getElementById('total-amount').textContent = `$${total}`;
+}
 
-// Handle add to order 
+
+// Handle add item to order button
 function handleAddMenuItem(menuId) { // pass in data-add value
-  document.getElementById('order').classList.remove('hidden') // unhide the order summary
   const selectedItem = Number(menuId) // convert menuId to number
 
   console.log('Item ID passed in: ', menuId); // debug
 
-  for (let item of menuData) {
+  for (let item of menuArray) {
     if (item.id === selectedItem) {
-      orderArray.push(item)
-      orderTotal += item.price;
+      ordersArray.push(item)
     }
   }
 
-  console.log('Current order array: ', orderArray)
-
-  // updateOrder();
-  document.getElementById('order-list').innerHTML = renderOrderHtml()
+  console.log('Current order array: ', ordersArray) // debug
+  // render the current cart:
+  document.getElementById('order-list').innerHTML = renderCartHtml(ordersArray)
 }
 
-function updateOrder() {
-  document.getElementById('order-list').innerHTML = renderOrderHtml()
 
-}
 
 // Render the ordered items onto the page
-function renderOrderHtml() { 
-  document.getElementById('order').classList.remove('hidden'); // unhide the order summary div
+function renderCartHtml(ordersArray) { 
+  if (!ordersArray.length) { // check if the orders array is empty
+    document.getElementById('cart').style.display = 'none';
+  }
+
   let orderHtml = ``;
 
-  orderArray.forEach(item => {
+  ordersArray.forEach((item, index) => {
     orderHtml += `
       <li class="flex">
-        <div><span class="item">${item.name}</span><span><a href="javascript:;" class="remove-item" data-remove="0">remove</a></span></div>
+        <div><span class="item">${item.name}</span><span><a href="javascript:;" class="remove-item" data-remove="${index}">remove</a></span></div>
         <span class="price">$${item.price}</span>
       </li>
       `
   })
-  // update order total html
-  document.getElementById('total-amount').textContent = `$${orderTotal}`;
   return orderHtml;
 }
 
@@ -90,7 +71,7 @@ function renderOrderHtml() {
 function getMenuHtml() {
   let menuHtml = ``;
 
-  menuData.forEach(item => {
+  menuArray.forEach(item => {
     menuHtml += `
       <li class="flex">
         <div class="menu-item flex" id="menu-item-${item.id}">

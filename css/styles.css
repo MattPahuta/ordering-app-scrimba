@@ -177,6 +177,10 @@ body {
   text-align: center;
 }
 
+.cart {
+  display: none;
+}
+
 .order-details {
   padding-bottom: 1.5em;
 }
@@ -186,7 +190,7 @@ body {
 	padding: 1em 0 2.5em;
 }
 
-.order h2,
+.cart h2,
 .item,
 .total {
   font-size: 1.75rem;
