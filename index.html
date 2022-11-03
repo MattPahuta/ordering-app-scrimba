@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ordering App</title>
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet"> 
@@ -15,7 +15,7 @@
   <div class="container">
     <header class="header">
       <div class="header-text">
-        <h1>Jimmy's Dinner</h1>
+        <h1>Jimmy's Diner</h1>
         <p>The best burgers and pizzas in town</p>
       </div>
     </header>
@@ -55,16 +55,14 @@
     </div>
     <h2>Enter Card Details</h2>
     <form id="payment-form">
-      <input type="text" name="firstName" placeholder="Enter your name" required>
-      <input type="number" name="cardNumber" placeholder="Enter card number" required>
-      <input type="number" name="cvvNumber" placeholder="Enter CVV" required>
+      <input type="text" id="first-name" name="firstName" placeholder="Enter your name" required>
+      <input type="number" id="card-number" name="cardNumber" placeholder="Enter card number" required>
+      <input type="number" id="ccv-number" name="cvvNumber" placeholder="Enter CVV" required>
       <button type="submit" class="pay-btn" id="pay-btn">Pay</button>
     </form>
   </div>
 
   </div>
-
-
   
   <script src="./js/app.js" type="module"></script>
 </body>
