@@ -24,6 +24,7 @@
       <!-- menu section -->
       <section class="menu">
           <ul class="menu-list" id="menu-list">
+            <!-- menu items get rendered here -->
           </ul>
       </section>
       <!-- shopping cart section -->
@@ -32,6 +33,7 @@
           <h2>Your order</h2>
           <div class="order-details" id="order-details">
             <ul id="order-list" class="order-list">
+              <!-- items added to order go here -->
             </ul>
           </div>
           <div class="total-container flex">
@@ -43,19 +45,25 @@
 
       <div class="order-confirm" id="order-confirm">
       </div>
+
     </main>
 
-    <div class="payment-modal hidden" id="payment-modal">
-      <h2>Enter Card Details</h2>
-      <form action="">
-        <input type="text" placeholder="Enter your name">
-        <input type="" placeholder="Enter card number">
-        <input type="" placeholder="Enter CVV">
-        <button type="submit">Pay</button>
-      </form>
-		</div>
+  <!-- Enter payment details modal -->
+  <div class="payment-modal" id="payment-modal">
+    <div class="close-modal-btn-container">
+      <button class="modal-close-btn" id="modal-close-btn">X</button>
+    </div>
+    <h2>Enter Card Details</h2>
+    <form id="payment-form">
+      <input type="text" name="firstName" placeholder="Enter your name" required>
+      <input type="number" name="cardNumber" placeholder="Enter card number" required>
+      <input type="number" name="cvvNumber" placeholder="Enter CVV" required>
+      <button type="submit" class="pay-btn" id="pay-btn">Pay</button>
+    </form>
+  </div>
 
   </div>
+
 
   
   <script src="./js/app.js" type="module"></script>
