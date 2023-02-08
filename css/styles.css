@@ -3,13 +3,9 @@
   --clr-green: hsla(160, 82%, 47%, 1);
   --clr-light-gray: hsla(0, 0%, 82%, 1);
   --clr-dark-gray: hsla(0, 0%, 55%, 1);
+  --clr-red: hsla(0, 87%, 60%, 1);
 }
-/*
-  ************* RESET *****************************
-  Josh's Custom CSS Reset
-  https://www.joshwcomeau.com/css/custom-css-reset/
-  *************************************************
-*/
+/* RESET */
 *,
 *::before,
 *::after {
@@ -93,7 +89,7 @@ body {
   max-width: 100%;
   height: 167px;
   background: #303030;
-  background-image: url(../img/edward-franklin-Nb_Q-M3Cdzg-unsplash.jpg);
+  background-image: url(../img/header-bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position-y: 70%;
@@ -120,15 +116,13 @@ body {
 }
 
 .menu-list li,
-.order-list li,
-.total-container {
+.order-list li {
   justify-content: space-between;
   align-items: center;
-
 }
 
 .menu-list li {
-  padding: 2em 0;
+  padding: 1em 0;
   border-bottom: 1px solid var(--clr-light-gray);
 }
 
@@ -182,9 +176,25 @@ body {
   padding-bottom: 1.5em;
 }
 
+.subtotal {
+  padding: 1em 0 2.5em;
+	flex-direction: column;
+  gap: 1em;
+  border-top: 3px solid black;
+
+}
+
+.promo-form,
 .total-container {
-	border-top: 3px solid black;
-	padding: 1em 0 2.5em;
+  justify-content: space-between;
+}
+
+.promo-form label {
+  font-size: 1.125rem;
+}
+
+.promo-form input {
+  width: 60%;
 }
 
 .cart h2,
@@ -206,7 +216,7 @@ body {
 
 .remove-item:hover,
 .remove-item:focus {
-  color: var(--clr-light-gray);
+  color: var(--clr-red);
 }
 
 .submit-order,

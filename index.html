@@ -36,9 +36,15 @@
               <!-- items added to order go here -->
             </ul>
           </div>
-          <div class="total-container flex">
-            <span class="total">Total price:</span><span class="total-amount" id="total-amount"></span>
+          <div class="subtotal flex">
+            <form class="promo-form flex">
+              <label for="promo">Got a promo code?</label><input id="promo" type="text">
+            </form>
+            <div class="total-container flex">
+              <span class="total">Total price:</span><span class="total-amount" id="total-amount"></span>
+            </div>
           </div>
+          <!-- make this a button with type 'submit'? -->
           <a href="javascript:;" class="submit-order" id="submit-order">Complete order</a>
         </div>
       </section>

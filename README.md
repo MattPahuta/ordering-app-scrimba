@@ -25,6 +25,7 @@ Users should be able to:
 - Receive an order complete/confirmation message
 - See order confirmation disappear after 3 secs, reseting ordering form
 
+
 ### Screenshot
 
 ![](./project-ss.png)
