@@ -3,7 +3,11 @@ import { menuArray } from './data.js' // import menu data
 const paymentForm = document.getElementById('payment-form');
 
 // valid promo codes
-const currentPromos = ['freePizza', 'happyHour10', 'take15'];
+// ToDo: move promos to data, export object
+const currentPromos = ['freepizza', 'happyhour10', 'take15'];
+// take15 = 15% off entire order
+// freePizza = 1x free pizza (requires pizza within ordersArray)
+// happyHour10 = $10 dollar beers (-2 discount each beer)
 // array to hold current orders
 let ordersArray = [];
 
@@ -21,7 +25,12 @@ document.addEventListener('click', (e) => {
     document.getElementById('payment-modal').style.display = 'block';
   } else if (e.target.id === 'modal-close-btn') {
     document.getElementById('payment-modal').style.display = 'none';
-  } 
+  } else if (e.target.id === 'promo-btn') {
+    handlePromoCode(e)
+    // e.preventDefault()
+    // const promoCode = document.getElementById('promo-input').value;
+    // console.log(promoCode)
+  }
 })
 
 paymentForm.addEventListener('submit', (e) => {
@@ -52,8 +61,17 @@ function resetCart() {
 }
 
 // handle promo code
-function applyPromoCode() {
+function handlePromoCode(e) {
+  e.preventDefault();
+  const promoCodeInput = document.getElementById('promo-input');
+  const submittedPromo = promoCodeInput.value.toLowerCase()
+  if (currentPromos.includes(submittedPromo)) {
+    console.log('Valid promo: ', submittedPromo)
+  } else {
+    console.log('Invalid Promo Code')
+  }
 
+  promoCodeInput.value = ''
 }
 
 // get/update cart total, display total

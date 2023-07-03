@@ -38,7 +38,8 @@
           </div>
           <div class="subtotal flex">
             <form class="promo-form flex">
-              <label for="promo">Got a promo code?</label><input id="promo" type="text">
+              <label for="promo">Got a promo code?</label><input id="promo-input" type="text">
+              <button type="submit" id="promo-btn" class="promo-btn">Apply Promo</button>
             </form>
             <div class="total-container flex">
               <span class="total">Total price:</span><span class="total-amount" id="total-amount"></span>
@@ -60,6 +61,7 @@
       <button class="modal-close-btn" id="modal-close-btn">X</button>
     </div>
     <h2>Enter Card Details</h2>
+    <!-- ToDo: Add labels to inputs -->
     <form id="payment-form">
       <input type="text" id="first-name" name="firstName" placeholder="Enter your name" required>
       <input type="number" id="card-number" name="cardNumber" placeholder="Enter card number" required>
